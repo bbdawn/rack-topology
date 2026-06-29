@@ -18,6 +18,14 @@
 OpenStack 네트워크(VLAN) 기준으로 가상 인프라 연결 구조를 시각화합니다.
 - VLAN별 연결된 Instance 매핑
 
+### 멀티 공급자(Multi-Provider) 자원 공유
+Provider > Datacenter > Rack > Resource 계층 구조에서 공급자 간 자원 중복 등록 문제를 해결합니다.
+- Switch를 한 번만 등록하면 다른 공급자에서 불러오기로 재사용 가능
+- Switch 중복 등록 시 발생하는 SNMP 과부하 방지
+- 공급자 활성화 / 비활성화 / 삭제 관리
+- 공급자 비활성화 → 활성화 시 하위 Datacenter ~ Resource 전체 상태 일괄 복구
+- 비활성화 상태의 공급자는 SNMP/IPMI 데이터 수집에서 제외되도록 DB 설계
+
 ## 기술 스택
 - Backend: Java, Spring Boot, JPA
 - Database: MySQL
